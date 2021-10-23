@@ -38,8 +38,8 @@ class ListRoom(Resource):
         """
         Returns a list of all chat rooms.
         """
-        return {"Software Engineering": {"num_users": 30},
-                "AI": {"num_users": 30}, }
+        return {"Software Engineering": {"num_users": 90},
+                "AI": {"num_users": 90}, }
 
 
 @api.route('/endpoints')
