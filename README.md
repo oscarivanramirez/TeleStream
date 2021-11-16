@@ -11,6 +11,7 @@
 - Recognize user has left
 - Allow the users to create a room by creating a create room endpoint
 - private dms by creating dm endpoint to allow users for 1 to 1 msging
+- tbd
 
 ## Create 
 - Users are able to create a username for themseleves to access the chat rooms using username endpoint
