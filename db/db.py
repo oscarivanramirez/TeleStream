@@ -7,9 +7,9 @@ Gradually, we will fill in actual calls to our datastore.
 import json
 import os
 
-DEMO_HOME = os.environ["DEMO_HOME"]
+NFT_HOME = os.environ["NFT_HOME"]
 
-ROOMS_DB = f"{DEMO_HOME}/db/rooms.json"
+ROOMS_DB = f"{NFT_HOME}/db/rooms.json"
 
 OK = 0
 NOT_FOUND = 1
