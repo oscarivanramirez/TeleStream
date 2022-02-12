@@ -91,6 +91,24 @@ class DeleteRoom(Resource):
         else:
             return f"{roomname} deleted."
 
+@api.route('/message/create')
+class CreateMessage(Resource):
+    """
+    This class supports adding a message.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def post(self, message):
+        """
+        This method adds a room to the room db.
+        """
+        ret = db.add_message(message)#am I altering db if yes post if not get
+        if ret == db.NOT_FOUND:
+            raise (wz.NotFound("Chat room db not found."))
+        elif ret == db.DUPLICATE:
+            raise (wz.NotAcceptable(f"Chat room {message} already exists."))
+        else:
+            return f"{message} added."
 
 @api.route('/endpoints')
 class Endpoints(Resource):

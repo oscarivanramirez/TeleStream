@@ -12,11 +12,13 @@ DEMO_HOME = os.environ["NFT_HOME"]
 
 ROOMS = "rooms"
 USERS = "users"
+MESSAGES = "messages"
 
 # field names in our DB:
 USER_NM = "userName"
 ROOM_NM = "roomName"
 NUM_USERS = "num_users"
+MESSAGES_NM = "messagesName"
 
 OK = 0
 NOT_FOUND = 1
@@ -108,3 +110,18 @@ def del_user(username):
     else:
         dbc.del_one(USERS, filters={USER_NM: username})
         return OK
+
+def add_message(message):
+    """
+    Add a message to the database.
+    Until we are using a real DB, we have a potential
+    race condition here.
+    """
+    dbc.insert_doc(MESSAGES, {MESSAGES_NM: message})
+    return OK
+
+def get_messages():
+    """
+    A function to return a dictionary of all users.
+    """
+    return dbc.fetch_all(MESSAGES, MESSAGES_NM)

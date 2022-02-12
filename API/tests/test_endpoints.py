@@ -2,6 +2,7 @@
 This file holds the tests for endpoints.py.
 """
 
+from email import message
 from unittest import TestCase, skip 
 from flask_restx import Resource, Api
 import random
@@ -52,6 +53,17 @@ class EndpointTestCase(TestCase):
         ret = cr.post(new_room)
         rooms = db.get_rooms()
         self.assertIn(new_room, rooms)
+
+    def test_create_message(self):
+        """
+        See if we can successfully create a new room.
+        Post-condition: room is in DB.
+        """
+        cr = ep.CreateMessage(Resource)
+        new_message = new_entity_name("message")
+        ret = cr.post(new_message)
+        messages = db.get_messages()
+        self.assertIn(new_message, messages)
 
     def test_list_rooms1(self):
         """
