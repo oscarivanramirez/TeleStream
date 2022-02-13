@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
 
 env:
-  NFT_HOME: /home/runner/work/sweJOL/sweJOL/
+  NFT_HOME: /home/runner/work/TeleStream/TeleStream/
   MONGO_PASSWD: ${{secrets.MONGO_PASSWD}}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
