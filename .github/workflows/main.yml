@@ -1,6 +1,6 @@
 # This is a workflow to test and deploy our demo app.
 
-name: Demo CI/CD
+name: Telestream CI/CD
 
 # Controls when the workflow will run
 on:
@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
 
 env:
-  NFT_HOME: /Users/oscarramirez/Desktop/sweJOL
+  NFT_HOME: /home/runner/work/sweJOL/sweJOL/
   MONGO_PASSWD: ${{secrets.MONGO_PASSWD}}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
