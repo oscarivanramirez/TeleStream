@@ -92,7 +92,7 @@ class DeleteRoom(Resource):
             return f"{roomname} deleted."
 
 
-@api.route('/message/create/<message>')
+@api.route('/messages/create/<message>')
 class CreateMessage(Resource):
     """
     This class supports adding a message.
@@ -111,6 +111,24 @@ class CreateMessage(Resource):
             raise (wz.NotAcceptable(f"Chat room {message} already exists."))
         else:
             return f"{message} added."
+
+
+@api.route('/messages/list')
+class ListMessages(Resource):
+    """
+    This endpoint returns a list of all users.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def get(self):
+        """
+        Returns a list of all users.
+        """
+        messages = db.get_messages()
+        if messages is None:
+            raise (wz.NotFound("User db not found."))
+        else:
+            return messages
 
 
 @api.route('/bye')
