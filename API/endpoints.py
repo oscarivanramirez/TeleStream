@@ -91,6 +91,7 @@ class DeleteRoom(Resource):
         else:
             return f"{roomname} deleted."
 
+
 @api.route('/message/create')
 class CreateMessage(Resource):
     """
@@ -101,14 +102,16 @@ class CreateMessage(Resource):
     def post(self, message):
         """
         This method adds a room to the room db.
+        am I altering db if yes post if not get
         """
-        ret = db.add_message(message)#am I altering db if yes post if not get
+        ret = db.add_message(message)
         if ret == db.NOT_FOUND:
             raise (wz.NotFound("Chat room db not found."))
         elif ret == db.DUPLICATE:
             raise (wz.NotAcceptable(f"Chat room {message} already exists."))
         else:
             return f"{message} added."
+
 
 @api.route('/bye')
 class ByeWorld(Resource):
@@ -122,6 +125,7 @@ class ByeWorld(Resource):
         It just answers with "hello world."
         """
         return {'Bye': WORLD}
+
 
 @api.route('/endpoints')
 class Endpoints(Resource):

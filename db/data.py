@@ -111,6 +111,7 @@ def del_user(username):
         dbc.del_one(USERS, filters={USER_NM: username})
         return OK
 
+
 def add_message(message):
     """
     Add a message to the database.
@@ -119,6 +120,7 @@ def add_message(message):
     """
     dbc.insert_doc(MESSAGES, {MESSAGES_NM: message})
     return OK
+
 
 def get_messages():
     """
