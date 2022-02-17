@@ -1,6 +1,7 @@
 """
 This file contains some common MongoDB code.
 """
+# from email import message
 import os
 import json
 import pymongo as pm
@@ -72,3 +73,9 @@ def fetch_all(collect_nm, key_nm):
 
 def insert_doc(collect_nm, doc):
     client[db_nm][collect_nm].insert_one(doc)
+
+
+def insert_msg(collect_nm, room_Name,
+               messages):
+    client[db_nm][collect_nm].update_one({"roomName": room_Name},
+                                         {'$push': {"messages": messages}})

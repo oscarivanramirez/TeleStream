@@ -120,7 +120,8 @@ def add_message(messages):
     Until we are using a real DB, we have a potential
     race condition here.
     """
-    dbc.insert_doc(MESSAGES, {MESSAGES_NM: messages})
+    # dbc.insert_doc(MESSAGES, {MESSAGES_NM: messages})
+    dbc.insert_msg(ROOMS, "new room22169293538955", messages)
     return OK
 
 
