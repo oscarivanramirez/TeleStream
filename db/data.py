@@ -68,7 +68,8 @@ def add_room(roomname):
     if room_exists(roomname):
         return DUPLICATE
     else:
-        dbc.insert_doc(ROOMS, {ROOM_NM: roomname, NUM_USERS: 0, MESSAGES_NM: []})
+        dbc.insert_doc(ROOMS, {ROOM_NM: roomname, 
+        NUM_USERS: 0, MESSAGES_NM: []})
         return OK
 
 
