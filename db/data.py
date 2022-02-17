@@ -113,13 +113,13 @@ def del_user(username):
         return OK
 
 
-def add_message(message):
+def add_message(messages):
     """
     Add a message to the database.
     Until we are using a real DB, we have a potential
     race condition here.
     """
-    dbc.insert_doc(MESSAGES, {MESSAGES_NM: message})
+    dbc.insert_doc(MESSAGES, {MESSAGES_NM: messages})
     return OK
 
 
