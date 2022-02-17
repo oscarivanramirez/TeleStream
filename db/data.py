@@ -4,7 +4,7 @@ At first, it will just contain stubs that return fake data.
 Gradually, we will fill in actual calls to our datastore.
 """
 
-from email import message
+# from email import message
 import os
 
 import db.db_connect as dbc
@@ -68,8 +68,8 @@ def add_room(roomname):
     if room_exists(roomname):
         return DUPLICATE
     else:
-        dbc.insert_doc(ROOMS, {ROOM_NM: roomname, 
-        NUM_USERS: 0, MESSAGES_NM: []})
+        dbc.insert_doc(ROOMS, {ROOM_NM: roomname,
+                               NUM_USERS: 0, MESSAGES_NM: []})
         return OK
 
 
