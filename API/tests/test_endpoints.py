@@ -62,8 +62,12 @@ class EndpointTestCase(TestCase):
         cr = ep.CreateMessage(Resource)
         new_message = new_entity_name("message")
         ret = cr.post(new_message)
-        # messages = db.get_messages()
+        #messages = db.get_messages()
         # self.assertIn(new_message, messages)
+
+    def test_list_messages(self):
+        listMsg = ep.ListMessages(Resource)
+        ret = listMsg.get()
 
     def test_list_rooms1(self):
         """

@@ -129,4 +129,4 @@ def get_messages():
     """
     A function to return a dictionary of all users.
     """
-    return dbc.fetch_all(MESSAGES, MESSAGES_NM)
+    return dbc.fetch_all_msg(ROOMS, "COD")

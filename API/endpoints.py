@@ -126,7 +126,7 @@ class ListMessages(Resource):
         """
         messages = db.get_messages()
         if messages is None:
-            raise (wz.NotFound("User db not found."))
+            raise (wz.NotFound("Messages not found."))
         else:
             return messages
 

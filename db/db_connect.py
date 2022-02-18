@@ -79,3 +79,7 @@ def insert_msg(collect_nm, room_Name,
                messages):
     client[db_nm][collect_nm].update_one({"roomName": room_Name},
                                          {'$push': {"messages": messages}})
+
+def fetch_all_msg(collect_nm, room_Name):
+    ans = client[db_nm][collect_nm].find_one({"roomName": room_Name})['messages']
+    return ans
