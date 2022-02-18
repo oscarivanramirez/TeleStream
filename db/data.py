@@ -121,7 +121,7 @@ def add_message(messages):
     race condition here.
     """
     # dbc.insert_doc(MESSAGES, {MESSAGES_NM: messages})
-    dbc.insert_msg(ROOMS, "COD", messages)
+    dbc.insert_msg(ROOMS, "new room22169293538955", messages)
     return OK
 
 
@@ -129,4 +129,4 @@ def get_messages():
     """
     A function to return a dictionary of all users.
     """
-    return dbc.fetch_all_msg(ROOMS, "COD")
+    return dbc.fetch_all_msg(ROOMS, "new room22169293538955")

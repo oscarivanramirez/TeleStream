@@ -101,5 +101,3 @@ def fetch_all_msg(collect_nm, room_Name):
             allMsgs = doc['messages']
     print('allMsgs', allMsgs)
     return allMsgs
-    
-
