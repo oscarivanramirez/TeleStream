@@ -186,19 +186,19 @@ class CreateUser(Resource):
     @api.response(HTTPStatus.OK, 'Success')
     @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
     @api.response(HTTPStatus.NOT_ACCEPTABLE, 'A duplicate key')
-    def post(self, username):
+    def post(self, username, password):
         """
         This method adds a user to the chatroom.
         """
         """
         This method adds a room to the room db.
         """
-        ret = db.add_user(username)
+        ret = db.add_user(username, password)
         if ret == db.NOT_FOUND:
             raise (wz.NotFound("User db not found."))
         elif ret == db.DUPLICATE:
             raise (wz.NotAcceptable("User name already exists."))
-        return f"{username} added."
+        return f"{username, password} added."
 
 
 @api.route('/users/delete/<username>')

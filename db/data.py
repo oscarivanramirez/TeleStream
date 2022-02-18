@@ -17,6 +17,7 @@ MESSAGES = "messages"
 
 # field names in our DB:
 USER_NM = "userName"
+PW_NM = "passWord"
 ROOM_NM = "roomName"
 NUM_USERS = "num_users"
 MESSAGES_NM = "messages"
@@ -90,7 +91,7 @@ def get_users():
     return dbc.fetch_all(USERS, USER_NM)
 
 
-def add_user(username):
+def add_user(username, password):
     """
     Add a user to the user database.
     Until we are using a real DB, we have a potential
@@ -99,7 +100,7 @@ def add_user(username):
     if user_exists(username):
         return DUPLICATE
     else:
-        dbc.insert_doc(USERS, {USER_NM: username, MESSAGES_NM: []})
+        dbc.insert_doc(USERS, {USER_NM: username, PW_NM: password, MESSAGES_NM: []})
         return OK
 
 
