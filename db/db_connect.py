@@ -84,6 +84,6 @@ def insert_msg(collect_nm, room_Name,
 def fetch_all_msg(collect_nm, room_Name):
     # print('fetch_all_msg',client[db_nm][collect_nm].find())
     ans = client[db_nm][collect_nm].find_one(
-                                         {"roomName": room_Name})['messages']
-    print('ans', ans)
+                                         {"roomName": room_Name})
+    print('ans',ans)
     return ans
