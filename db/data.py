@@ -121,7 +121,7 @@ def add_message(messages):
     race condition here.
     """
     # dbc.insert_doc(MESSAGES, {MESSAGES_NM: messages})
-    dbc.insert_msg(ROOMS, "new room22169293538955", messages)
+    dbc.insert_msg(ROOMS, "COD", messages)
     return OK
 
 
