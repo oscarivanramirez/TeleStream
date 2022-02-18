@@ -92,15 +92,13 @@ def fetch_all_msg(collect_nm, room_Name):
     print('client[db_nm][collect_nm].find()   -------> ',
           client[db_nm][collect_nm].find())
     '''
-    '''
+    
     allMsgs = []
     for doc in client[db_nm][collect_nm].find():
         print('docMsg\n', doc)
         if(doc['roomName'] == room_Name):
             allMsgs = doc['messages']
     print('allMsgs', allMsgs)
-    '''
-    ans = client[db_nm][collect_nm].find_one({'roomName':room_Name})
-    print('ans', ans)
-    return ans
+    return allMsgs
+    
 
