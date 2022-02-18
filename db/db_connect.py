@@ -96,6 +96,7 @@ def fetch_all_msg(collect_nm, room_Name):
     allMsgs = []
     for doc in client[db_nm][collect_nm].find():
         print('docMsg\n', doc)
+        print(doc['roomName'])
         if(doc['roomName'] == room_Name):
             allMsgs = doc['messages']
     print('allMsgs', allMsgs)
