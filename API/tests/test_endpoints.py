@@ -39,7 +39,8 @@ class EndpointTestCase(TestCase):
         """
         cu = ep.CreateUser(Resource)
         new_user = new_entity_name("user")
-        ret = cu.post(new_user)
+        new_password = new_entity_name("password")
+        ret = cu.post(new_user, new_password)
         users = db.get_users()
         self.assertIn(new_user, users)
 
