@@ -193,7 +193,7 @@ class CreateUser(Resource):
         """
         This method adds a room to the room db.
         """
-        ret = db.add_user(username,password)
+        ret = db.add_user(username, password)
         if ret == db.NOT_FOUND:
             raise (wz.NotFound("User db not found."))
         elif ret == db.DUPLICATE:

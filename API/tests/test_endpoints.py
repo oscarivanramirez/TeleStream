@@ -31,7 +31,7 @@ class EndpointTestCase(TestCase):
         self.assertIsInstance(ret, dict)
         self.assertIn(ep.HELLO, ret)
 
-    @skip("In the middle of making this work.")
+    # @skip("In the middle of making this work.")
     def test_create_user(self):
         """
         See if we can successfully create a new user.
