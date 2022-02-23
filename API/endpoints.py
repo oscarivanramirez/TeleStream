@@ -198,7 +198,7 @@ class CreateUser(Resource):
             raise (wz.NotFound("User db not found."))
         elif ret == db.DUPLICATE:
             raise (wz.NotAcceptable("User name already exists."))
-        return f"{username} added."
+        return f"{username, password} added."
 
 
 @api.route('/users/delete/<username>')
