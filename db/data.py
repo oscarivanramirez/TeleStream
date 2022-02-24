@@ -38,7 +38,7 @@ def get_rooms():
     """
     A function to return a dictionary of all rooms.
     """
-    return dbc.fetch_all(ROOMS, ROOM_NM)
+    return dbc.fetch_all(ROOMS)
 
 
 def room_exists(roomname):
@@ -89,7 +89,7 @@ def get_users():
     """
     A function to return a dictionary of all users.
     """
-    return dbc.fetch_all(USERS, USER_NM)
+    return dbc.fetch_all(USERS)
 
 
 def add_user(username, password):

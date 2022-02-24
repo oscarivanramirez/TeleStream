@@ -29,4 +29,4 @@ class DBTestCase(TestCase):
         Can we fetch user db?
         """
         users = db.get_users()
-        self.assertIsInstance(users, dict)
+        self.assertIsInstance(users, list)
