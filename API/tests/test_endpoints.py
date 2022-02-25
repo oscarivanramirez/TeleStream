@@ -51,7 +51,8 @@ class EndpointTestCase(TestCase):
         """
         cr = ep.CreateRoom(Resource)
         new_room = new_entity_name("room")
-        ret = cr.post(new_room)
+        new_genre = new_entity_name("genre")
+        ret = cr.post(new_room, new_genre)
         rooms = db.get_rooms()
         # self.assertIn(new_room, rooms)
 

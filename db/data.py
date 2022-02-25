@@ -18,8 +18,9 @@ MESSAGES = "messages"
 
 # field names in our DB:
 USER_NM = "userName"
-ROOM_NM = "roomName"
 PASSWORD_NM = "password"
+ROOM_NM = "roomName"
+GENRE_NM = "genre"
 NUM_USERS = "num_users"
 MESSAGES_NM = "messages"
 
@@ -62,7 +63,7 @@ def del_room(roomname):
         return OK
 
 
-def add_room(roomname):
+def add_room(roomname, genre):
     """
     Add a room to the room database.
     """
@@ -70,7 +71,7 @@ def add_room(roomname):
     if room_exists(roomname):
         return DUPLICATE
     else:
-        dbc.insert_doc(ROOMS, {ROOM_NM: roomname,
+        dbc.insert_doc(ROOMS, {ROOM_NM: roomname, GENRE_NM: genre,
                                NUM_USERS: 0, MESSAGES_NM: []})
         return OK
 

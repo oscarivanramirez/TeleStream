@@ -49,7 +49,7 @@ class ListRooms(Resource):
             return rooms
 
 
-@api.route('/rooms/create/<roomname>')
+@api.route('/rooms/create/<roomname>/<genre>')
 class CreateRoom(Resource):
     """
     This class supports adding a chat room.
@@ -57,17 +57,17 @@ class CreateRoom(Resource):
     @api.response(HTTPStatus.OK, 'Success')
     @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
     @api.response(HTTPStatus.NOT_ACCEPTABLE, 'A duplicate key')
-    def post(self, roomname):
+    def post(self, roomname, genre):
         """
         This method adds a room to the room db.
         """
-        ret = db.add_room(roomname)
+        ret = db.add_room(roomname, genre)
         if ret == db.NOT_FOUND:
             raise (wz.NotFound("Chat room db not found."))
         elif ret == db.DUPLICATE:
             raise (wz.NotAcceptable(f"Chat room {roomname} already exists."))
         else:
-            return f"{roomname} added."
+            return f"{roomname, genre} added."
 
 
 @api.route('/rooms/delete/<roomname>')
