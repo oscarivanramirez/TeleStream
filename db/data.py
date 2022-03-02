@@ -118,14 +118,14 @@ def del_user(username):
         return OK
 
 
-def add_message(messages):
+def add_message(chatname, messages):
     """
     Add a message to the database.
     Until we are using a real DB, we have a potential
     race condition here.
     """
     # dbc.insert_doc(MESSAGES, {MESSAGES_NM: messages})
-    dbc.insert_msg(ROOMS, "COD", messages)
+    dbc.insert_msg(ROOMS, chatname, messages)
     return OK
 
 
