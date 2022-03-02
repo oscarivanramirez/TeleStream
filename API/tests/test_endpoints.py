@@ -69,7 +69,7 @@ class EndpointTestCase(TestCase):
 
     def test_list_messages(self):
         listMsg = ep.ListMessages(Resource)
-        ret = listMsg.get()
+        ret = listMsg.get("new room14667656783878")
 
     def test_list_rooms1(self):
         """

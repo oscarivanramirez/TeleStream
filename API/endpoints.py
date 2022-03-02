@@ -113,18 +113,18 @@ class CreateMessage(Resource):
             return f"{message} added."
 
 
-@api.route('/messages/list')
+@api.route('/messages/<chatname>/list')
 class ListMessages(Resource):
     """
     This endpoint returns a list of all users.
     """
     @api.response(HTTPStatus.OK, 'Success')
     @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
-    def get(self):
+    def get(self, chatname):
         """
         Returns a list of all users.
         """
-        messages = db.get_messages()
+        messages = db.get_messages(chatname)
         if messages is None:
             raise (wz.NotFound("Messages not found."))
         else:

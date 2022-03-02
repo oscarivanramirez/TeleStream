@@ -129,8 +129,8 @@ def add_message(chatname, messages):
     return OK
 
 
-def get_messages():
+def get_messages(chatname):
     """
     A function to return a dictionary of all users.
     """
-    return dbc.fetch_all_msg(ROOMS, "COD")
+    return dbc.fetch_all_msg(ROOMS, chatname)
