@@ -92,7 +92,7 @@ class DeleteRoom(Resource):
             return f"{roomname} deleted."
 
 
-@api.route('/messages/create/<chatroom>/<message>')
+@api.route('/messages/create/<chatname>/<message>')
 class CreateMessage(Resource):
     """
     This class supports adding a message.
