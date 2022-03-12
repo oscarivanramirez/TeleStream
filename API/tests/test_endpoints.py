@@ -71,6 +71,13 @@ class EndpointTestCase(TestCase):
         listMsg = ep.ListMessages(Resource)
         ret = listMsg.get("new room14667656783878")
 
+
+    def test_list_user(self):
+        listUser = ep.FindUser(Resource)
+        ret = listUser.get("new user86191772604053", "new password80436178979320")
+        print(ret, 'list user')
+
+
     def test_list_rooms1(self):
         """
         Post-condition 1: return is a dictionary.

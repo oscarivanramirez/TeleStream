@@ -191,7 +191,7 @@ class FindUser(Resource):
         """
         Returns the user if it exist
         """
-        users = db.get_users(username, password)
+        users = db.find_user(username, password)
         if users is None:
             raise (wz.NotFound("User db not found."))
         else:
