@@ -5,14 +5,14 @@ The endpoint called `endpoints` will return all available endpoints.
 
 from http import HTTPStatus
 from flask import Flask
-from flask_cors import CORS
+# from flask_cors import CORS
 from flask_restx import Resource, Api
 import werkzeug.exceptions as wz
 
 import db.data as db
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 api = Api(app)
 
 HELLO = 'Hola'
@@ -174,6 +174,24 @@ class ListUsers(Resource):
         Returns a list of all users.
         """
         users = db.get_users()
+        if users is None:
+            raise (wz.NotFound("User db not found."))
+        else:
+            return users
+
+
+@api.route('/users/find/<username>/<password>')
+class FindUser(Resource):
+    """
+    This endpoint returns a list of all users.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def get(self, username, password):
+        """
+        Returns the user if it exist
+        """
+        users = db.get_users(username, password)
         if users is None:
             raise (wz.NotFound("User db not found."))
         else:

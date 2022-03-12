@@ -93,6 +93,15 @@ def get_users():
     return dbc.fetch_all(USERS)
 
 
+def find_user(username, password):
+    """
+    finds user based on username and password
+    """
+    user = dbc.fetch_one_combo(USERS, filters={
+                                USER_NM: username, PASSWORD_NM: password})
+    return user
+
+
 def add_user(username, password):
     """
     Add a user to the user database.
