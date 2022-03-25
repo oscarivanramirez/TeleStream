@@ -68,7 +68,8 @@ def fetch_all(collect_nm):
 
 
 def fetch_one_combo(collect_nm, filters={}):
-    return client[db_nm][collect_nm].find_one(filters)
+    ans = client[db_nm][collect_nm].find_one(filters)
+    return [ans]
 
 
 def insert_doc(collect_nm, doc):

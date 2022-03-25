@@ -99,6 +99,7 @@ def find_user(username, password):
     """
     user = dbc.fetch_one_combo(USERS, filters={
                                 USER_NM: username, PASSWORD_NM: password})
+    # [user[USER_NM],user[PASSWORD_NM]]
     return user
 
 
