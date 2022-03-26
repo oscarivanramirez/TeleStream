@@ -68,8 +68,10 @@ def fetch_all(collect_nm):
 
 
 def fetch_one_combo(collect_nm, filters={}):
+    user = []
     ans = client[db_nm][collect_nm].find_one(filters)
-    return [ans]
+    user.append(json.loads(bsutil.dumps(ans)))
+    return user
 
 
 def insert_doc(collect_nm, doc):
