@@ -52,6 +52,14 @@ def room_exists(roomname):
     return rec is not None
 
 
+def get_rooms_by_genre(genre):
+    '''
+    Gets all the rooms by a selected genre
+    '''
+    rooms = dbc.fetch_all_by_genre(ROOMS, genre)
+    return rooms
+
+
 def del_room(roomname):
     """
     Delete roomname from the db.

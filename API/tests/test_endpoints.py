@@ -72,6 +72,12 @@ class EndpointTestCase(TestCase):
         ret = listMsg.get("new room14667656783878")
 
 
+    def test_list_by_genre(self):
+        listGenre = ep.ListRoomsByGenre(Resource)
+        ret = listGenre.get("new genre34872589680861")
+        print('by genre', ret)
+
+
     def test_list_user(self):
         listUser = ep.FindUser(Resource)
         ret = listUser.get("new user86191772604053", "new password80436178979320")

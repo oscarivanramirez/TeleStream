@@ -104,3 +104,11 @@ def fetch_all_msg(collect_nm, room_Name):
             allMsgs = doc['messages']
     print('allMsgs', allMsgs)
     return allMsgs
+
+
+def fetch_all_by_genre(collect_nm, genre):
+    allRooms_by_genre = []
+    for doc in client[db_nm][collect_nm].find():
+        if(doc['genre'] == genre):
+            allRooms_by_genre.append(json.loads(bsutil.dumps(doc)))
+    return allRooms_by_genre
