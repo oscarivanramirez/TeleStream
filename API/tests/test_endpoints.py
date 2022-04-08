@@ -50,9 +50,10 @@ class EndpointTestCase(TestCase):
         Post-condition: room is in DB.
         """
         cr = ep.CreateRoom(Resource)
+        new_user = new_entity_name("user")
         new_room = new_entity_name("room")
         new_genre = new_entity_name("genre")
-        ret = cr.post(new_room, new_genre)
+        ret = cr.post(new_room, new_genre, new_user)
         rooms = db.get_rooms()
         # self.assertIn(new_room, rooms)
 

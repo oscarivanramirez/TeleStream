@@ -23,6 +23,7 @@ ROOM_NM = "roomName"
 GENRE_NM = "genre"
 NUM_USERS = "num_users"
 MESSAGES_NM = "messages"
+CREATER_NM = "createrName"
 
 OK = 0
 NOT_FOUND = 1
@@ -71,7 +72,7 @@ def del_room(roomname):
         return OK
 
 
-def add_room(roomname, genre):
+def add_room(roomname, genre, createrName):
     """
     Add a room to the room database.
     """
@@ -80,7 +81,8 @@ def add_room(roomname, genre):
         return DUPLICATE
     else:
         dbc.insert_doc(ROOMS, {ROOM_NM: roomname, GENRE_NM: genre,
-                               NUM_USERS: 0, MESSAGES_NM: []})
+                               NUM_USERS: 0, MESSAGES_NM: [],
+                               CREATER_NM: createrName})
         return OK
 
 

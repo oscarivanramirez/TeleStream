@@ -5,14 +5,14 @@ The endpoint called `endpoints` will return all available endpoints.
 
 from http import HTTPStatus
 from flask import Flask
-from flask_cors import CORS
+# from flask_cors import CORS
 from flask_restx import Resource, Api
 import werkzeug.exceptions as wz
 
 import db.data as db
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 api = Api(app)
 
 HELLO = 'Hola'
@@ -69,7 +69,7 @@ class ListRoomsByGenre(Resource):
             return rooms
 
 
-@api.route('/rooms/create/<roomname>/<genre>')
+@api.route('/rooms/create/<roomname>/<genre>/<createrName>')
 class CreateRoom(Resource):
     """
     This class supports adding a chat room.
@@ -77,11 +77,11 @@ class CreateRoom(Resource):
     @api.response(HTTPStatus.OK, 'Success')
     @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
     @api.response(HTTPStatus.NOT_ACCEPTABLE, 'A duplicate key')
-    def post(self, roomname, genre):
+    def post(self, roomname, genre, createrName):
         """
         This method adds a room to the room db.
         """
-        ret = db.add_room(roomname, genre)
+        ret = db.add_room(roomname, genre, createrName)
         if ret == db.NOT_FOUND:
             raise (wz.NotFound("Chat room db not found."))
         elif ret == db.DUPLICATE:
