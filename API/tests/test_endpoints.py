@@ -64,7 +64,8 @@ class EndpointTestCase(TestCase):
         """
         cr = ep.CreateMessage(Resource)
         new_message = new_entity_name("message")
-        ret = cr.post("new room14667656783878", new_message)
+        new_user = new_entity_name("user")
+        ret = cr.post("new room16597361770438", new_message, new_user)
         #messages = db.get_messages()
         # self.assertIn(new_message, messages)
 

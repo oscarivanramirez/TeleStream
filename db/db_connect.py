@@ -79,9 +79,11 @@ def insert_doc(collect_nm, doc):
 
 
 def insert_msg(collect_nm, room_Name,
-               messages):
+               messages, chatterName):
     client[db_nm][collect_nm].update_one({"roomName": room_Name},
-                                         {'$push': {"messages": messages}})
+                                         {'$push':
+                                         {"messages":
+                                          [chatterName, messages]}})
 
 
 def fetch_all_msg(collect_nm, room_Name):
