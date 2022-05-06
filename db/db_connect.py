@@ -49,7 +49,10 @@ def fetch_one(collect_nm, filters={}):
     """
     Fetch one record that meets filters.
     """
-    return client[db_nm][collect_nm].find_one(filters)
+    room = []
+    ans = client[db_nm][collect_nm].find_one(filters)
+    room.append(json.loads(bsutil.dumps(ans)))
+    return room
 
 
 def del_one(collect_nm, filters={}):
