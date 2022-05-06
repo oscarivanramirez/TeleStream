@@ -51,6 +51,24 @@ class ListRooms(Resource):
             return rooms
 
 
+@api.route('/rooms/list/<search>')
+class ListRoomsBySearch(Resource):
+    """
+    This endpoint returns a list of all rooms.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def get(self, search):
+        """
+        Returns a list of all chat rooms.
+        """
+        rooms = db.room_exists(search)
+        if rooms is None:
+            raise (wz.NotFound("Chat room db not found."))
+        else:
+            return rooms
+
+
 @api.route('/rooms/list/<genre>')
 class ListRoomsByGenre(Resource):
     """

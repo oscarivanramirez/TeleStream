@@ -6,6 +6,7 @@ Gradually, we will fill in actual calls to our datastore.
 
 # from email import message
 import os
+import re
 
 import db.db_connect as dbc
 
@@ -48,9 +49,10 @@ def room_exists(roomname):
     See if a room with roomname is in the db.
     Returns True of False.
     """
-    rec = dbc.fetch_one(ROOMS, filters={ROOM_NM: roomname})
+    rec = dbc.fetch_one(ROOMS, filters={ROOM_NM:
+                                        re.compile(roomname, re.IGNORECASE)})
     print(f"{rec=}")
-    return rec is not None
+    return rec
 
 
 def get_rooms_by_genre(genre):
