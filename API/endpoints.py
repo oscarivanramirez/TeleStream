@@ -51,7 +51,7 @@ class ListRooms(Resource):
             return rooms
 
 
-@api.route('/rooms/list/<search>')
+@api.route('/rooms/<search>/list')
 class ListRoomsBySearch(Resource):
     """
     This endpoint returns a list of all rooms.
