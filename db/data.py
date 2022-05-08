@@ -67,11 +67,8 @@ def del_room(roomname):
     """
     Delete roomname from the db.
     """
-    if not room_exists(roomname):
-        return NOT_FOUND
-    else:
-        dbc.del_one(ROOMS, filters={ROOM_NM: roomname})
-        return OK
+    dbc.del_one(ROOMS, filters={ROOM_NM: roomname})
+    return OK
 
 
 def add_room(roomname, genre, createrName):

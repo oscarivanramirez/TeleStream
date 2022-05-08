@@ -31,6 +31,10 @@ class EndpointTestCase(TestCase):
         self.assertIsInstance(ret, dict)
         self.assertIn(ep.HELLO, ret)
 
+    def test_delete_room(self):
+        dr = ep.DeleteRoom(Resource)
+        ret = dr.post("new room73753873657437")
+
     # @skip("In the middle of making this work.")
     def test_create_user(self):
         """
