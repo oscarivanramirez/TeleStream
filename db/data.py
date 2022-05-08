@@ -78,14 +78,10 @@ def add_room(roomname, genre, createrName):
     """
     Add a room to the room database.
     """
-    print(f"{roomname=}")
-    if room_exists(roomname):
-        return DUPLICATE
-    else:
-        dbc.insert_doc(ROOMS, {ROOM_NM: roomname, GENRE_NM: genre,
-                               NUM_USERS: 0, MESSAGES_NM: [],
-                               CREATER_NM: createrName})
-        return OK
+    dbc.insert_doc(ROOMS, {ROOM_NM: roomname, GENRE_NM: genre,
+                           NUM_USERS: 0, MESSAGES_NM: [],
+                           CREATER_NM: createrName})
+    return OK
 
 
 def user_exists(username):
